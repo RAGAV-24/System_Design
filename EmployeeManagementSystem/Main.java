@@ -1,5 +1,7 @@
 import java.util.*;
 import module.Employee;
+import module.Login;
+import module.Users;
 class Main
 {
   public static void main(String[] args)
@@ -18,19 +20,31 @@ class Main
     Employee e=new Employee(emp_id, emp_name, income, experience, joining_date);
     l.add(e);
     }
-    System.out.println("Before sorting");
+    // System.out.println("Before sorting");
+    // for(Employee e:l)
+    // {
+    // System.out.println(e.emp_id+" "+e.emp_name+" "+e.income+" "+e.experience+" "+e.joining_date);
+    // }
+    // // Sorting Based on ID FIELD
+    // Collections.sort(l,new Comparator<Employee>()
+    // { public int compare(Employee a,Employee b)
+    //   {return a.emp_id-b.emp_id;}});
+    // SORTING BASED ON LATEST JOINING DATE
+    // l.sort(Comparator.comparing((Employee e) -> e.joining_date).reversed());
+
+    // System.out.println("After sorting");
+    // for(Employee e:l)
+    // {
+    // System.out.println(e.emp_id+" "+e.emp_name+" "+e.income+" "+e.experience+" "+e.joining_date);
+    // }
+    ArrayList<Users> users=new ArrayList<>();
     for(Employee e:l)
     {
-    System.out.println(e.emp_id+" "+e.emp_name+" "+e.income+" "+e.experience+" "+e.joining_date);
+    Users ee=new Users(e.emp_name+e.emp_id,"123456");
+   users.add(ee);
     }
-    Collections.sort(l,new Comparator<Employee>()
-    { public int compare(Employee a,Employee b)
-      {return a.emp_id-b.emp_id;}});
-    System.out.println("After sorting");
-    for(Employee e:l)
-    {
-    System.out.println(e.emp_id+" "+e.emp_name+" "+e.income+" "+e.experience+" "+e.joining_date);
-    }
+    Login login=new Login();
+    Login.main(users);
 
   }
 }
