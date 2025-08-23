@@ -45,20 +45,51 @@ class Main
    users.add(ee);
     }
     users.add(new Users("admin001","123456","admin"));
-
+    System.out.println("Enter the login id followed by a space and password");
     Login login=new Login();
-    String user_auth=Login.main(users);
-    if(user_auth.equals("employee"))
+    String login_id=Login.main(users);
+    System.out.println(login_id);
+    String[] user_auth=login_id.split(" ");
+    if(user_auth[0].equals("employee"))
     {
-    System.out.println(user_auth+"*");
+    System.out.println(user_auth[0]+"*");
+    System.out.println("1.Fetch_profile ");
+    System.err.println("ENTER THE CHOICE YOU NEED");
+    int choice=sc.nextInt();
+    Employee e=new Employee();
+    switch(choice)
+    {
+     case 1:
+     e.fetch_data(user_auth[1],l);
+     break;
+     default:
+     System.out.println("Enter the correct  input");
     }
-    else if(user_auth.equals("admin"))
+    }
+    else if(user_auth[0].equals("admin"))
     {
- System.out.println(user_auth+"*");
+    System.out.println(user_auth[0]+"*71");
+    System.out.println("1.add_employee 2.display_all_employee");
+    System.err.println("ENTER THE CHOICE YOU NEED");
+    int choice=sc.nextInt();
+    Employee e=new Employee();
+    switch(choice)
+    {
+     case 1:
+     e.add_employee(l,users);
+      e.display_all_employee(l);
+     break;
+     case 2:
+     e.display_all_employee(l);
+
+     default:
+     System.out.println("Enter the correct  input");
+    }
+
     }
     else
     {
-      System.out.println(user_auth);
+      System.out.println(user_auth[0]);
     }
 
 

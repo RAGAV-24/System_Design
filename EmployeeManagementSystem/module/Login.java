@@ -14,7 +14,7 @@ public class Login {
         if(u.password.equals(password) )
         {
         System.out.println("Login Successful ");
-        return (u.role=="admin")?"admin":"employee";
+        return (u.role=="admin")?("admin "+u.id):("employee "+u.id);
         }
         else{
           System.out.println("Enter the correct password");
