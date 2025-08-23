@@ -1,7 +1,7 @@
 package module;
 import java.util.*;
 public class Login {
-  public static void main(ArrayList<Users> user) {
+  public static String main(ArrayList<Users> user) {
       Scanner sc=new Scanner(System.in);
       String id=sc.next();
       String password=sc.next();
@@ -11,19 +11,21 @@ public class Login {
        if(u.id.equals(id))
        {
         c++;
-        if(u.password.equals(password))
+        if(u.password.equals(password) )
         {
-        System.out.println("Login Successful");
+        System.out.println("Login Successful ");
+        return (u.role=="admin")?"admin":"employee";
         }
         else{
           System.out.println("Enter the correct password");
+          return "Incorrect passord";
         }
        }
       }
       if(c==0)
       {
-        System.out.println("Noone exsist with the given user credential");
+       return "Noone exsist with the given user credential";
       }
-
+    return "rog";
   }
 }

@@ -40,11 +40,27 @@ class Main
     ArrayList<Users> users=new ArrayList<>();
     for(Employee e:l)
     {
-    Users ee=new Users(e.emp_name+e.emp_id,"123456");
+    Users ee=new Users(e.emp_name+e.emp_id,"123456","employee");
+
    users.add(ee);
     }
+    users.add(new Users("admin001","123456","admin"));
+
     Login login=new Login();
-    Login.main(users);
+    String user_auth=Login.main(users);
+    if(user_auth.equals("employee"))
+    {
+    System.out.println(user_auth+"*");
+    }
+    else if(user_auth.equals("admin"))
+    {
+ System.out.println(user_auth+"*");
+    }
+    else
+    {
+      System.out.println(user_auth);
+    }
+
 
   }
 }
