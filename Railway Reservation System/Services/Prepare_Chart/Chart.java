@@ -22,7 +22,7 @@ public class Chart {
         System.out.println("s_no name nof_tick source destination status");
         int i = 1;
         for (Booking l : seats.get("AC")) {
-            System.out.println((i++) + " " + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
+            System.out.println((i++) + " "+l.tick_id+" " + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
             acco += l.nof_tick;
         }
         System.out.println("Total Seats:" + acco);
@@ -30,7 +30,7 @@ public class Chart {
         System.out.println("s_no name nof_tick source destination status");
         i = 1;
         for (Booking l : seats.get("Non-AC")) {
-            System.out.println((i++) + " " + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
+            System.out.println((i++) + " "+l.tick_id+" " + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
             naco += l.nof_tick;
         }
         System.out.println("Total Seats:" + naco);
@@ -38,7 +38,7 @@ public class Chart {
         System.out.println("s_no name nof_tick source destination status");
         i = 1;
         for (Booking l : seats.get("Seater")) {
-            System.out.println((i++) + " " + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
+            System.out.println((i++) + " "+l.tick_id+" "  + l.name + " " + l.nof_tick + " " + l.source + " " + l.destination + " " + l.status);
             seco += l.nof_tick;
         }
         System.out.println("Total Seats:" + seco);
