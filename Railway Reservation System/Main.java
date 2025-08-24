@@ -1,8 +1,8 @@
 
-import Availability_Checking.*;
-import Booking.*;
-import Cancellation.*;
-import Prepare_Chart.*;
+import Services.Availability_Checking.*;
+import Services.Booking.*;
+import Services.Cancellation.*;
+import Services.Prepare_Chart.*;
 import java.util.*;
 
 public class Main {
@@ -10,12 +10,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         HashMap<String, ArrayList<Booking>> seats = new HashMap<>();
+         seats.put("AC", new ArrayList<>());
+         seats.put("Non-AC", new ArrayList<>());
+         seats.put("Seater", new ArrayList<>());
         System.out.println("Enter your choice ");
-        System.out.println("1->Availability_Checking 2->Booking 3->Cancellation 4->Prepare chart ");
+        System.out.println("1->Availability_Checking 2->Booking 3->Cancellation 4->Prepare chart 5->Exit");
         int choice = sc.nextInt();
         while (choice < 5) {
             if (choice == 1) {
                 Availability ao = new Availability();
+                System.out.println("Enter the type of seat you want to checkout AC,Non-AC ,Seater");
+                String searchString=sc.next();
+                 ao.check(seats.get(searchString),searchString);
 
             } else if (choice == 2) {
                 Booking bo = new Booking();
@@ -28,17 +34,24 @@ public class Main {
                     System.out.println("There is no enough seats in " + seatString);
                     break;
                 }
-                System.out.println("There is only " + (70 - noseats_booked) + "available");
+                System.out.println("There is only " + (60 - noseats_booked) + "available");
+                boolean waiting_list=false;
+                if((60 - noseats_booked)==0)
+                {
+                  System.out.println("would you like to enter into the waiting list \n 1->yes 2->no");
+                  int wa=sc.nextInt();
+                  waiting_list=(wa==1)?true:false;
+                }
                 System.out.println("Enter your name ,number of tickects ,souce and destination location  give space inbetween each");
                 String name = sc.next();
                 int nof_tick = sc.nextInt();
                 String source = sc.next();
                 String destination = sc.next();
-                if (seats.containsKey(seatString)) {
-                    seats.get(seatString).add(new Booking(name, nof_tick, source, destination));
+                if (waiting_list) {
+                    seats.get(seatString).add(new Booking(name, nof_tick, source, destination,"waiting_list"));
                 } else {
-                    seats.put(seatString, new ArrayList<>());
-                    seats.get(seatString).add(new Booking(name, nof_tick, source, destination));
+                    // seats.put(seatString, new ArrayList<>());
+                    seats.get(seatString).add(new Booking(name, nof_tick, source, destination,"booked"));
                 }
 
                 System.out.println("Seat is booked succesfully with this user name");

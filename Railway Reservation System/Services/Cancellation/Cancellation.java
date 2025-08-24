@@ -1,4 +1,4 @@
-package Cancellation;
+package Services.Cancellation;
 
 public class Cancellation {
   public Cancellation()

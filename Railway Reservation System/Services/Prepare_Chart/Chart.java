@@ -1,4 +1,4 @@
-package Prepare_Chart;
+package Services.Prepare_Chart;
 
 public class Chart {
   public Chart()
