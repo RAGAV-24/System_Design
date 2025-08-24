@@ -1,0 +1,14 @@
+ Railway Reservation System
+Description:
+Develop a railway reservation application with the following types of seats:
+
+AC Coach
+Non-AC Coach
+Seater
+Each seat type has a capacity of 60 seats with a waiting list max of 10 seats.
+
+Modules:
+Booking
+Availability Checking
+Cancellation
+Prepare Chart
